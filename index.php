@@ -9,6 +9,7 @@ $title = 'To Do List'
     <title><?php echo $title ?></title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div id="app">
@@ -23,7 +24,15 @@ $title = 'To Do List'
             <section>
                 <div class="container">
                     <ul>
-                        <li v-for="(todo, i) in todos" :key="i">{{ todo.text}}</li>
+                        <li v-for="(todo, i) in todos" :key="i">
+                            <span :class="{
+                                done: todo.done
+                            }">{{ todo.text}}</span>
+                            <div class="actions">
+                                <span @click="doneTodo(i)">{{ todo.done }}</span>
+                                <span @click="destroyTodo(i)">delete</span>
+                            </div>
+                        </li>           
                     </ul>
                 </div>
             </section>

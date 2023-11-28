@@ -11,8 +11,8 @@ createApp({
   methods: {
     fetchData() {
       axios.get("server.php").then((res) => {
-        console.log(res.data);
-        this.todos = res.data;
+        console.log(res.data.results);
+        this.todos = res.data.results;
       });
     },
     storeTodo() {
@@ -20,13 +20,50 @@ createApp({
         todo: this.newTodo,
       };
 
-      axios.post("store.php", data, {
-        headers: {
-          "Content-Type": "multypart/form-data",
-        },
-      });
+      axios
+        .post("./store.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.todos = res.data;
+        });
 
       //   console.log(this.newTodo);
+    },
+    destroyTodo(index) {
+      const data = {
+        id: index,
+      };
+
+      axios
+        .post("./destroy.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.todos = res.data;
+        });
+    },
+    doneTodo(index) {
+      const data = {
+        id: index,
+      };
+
+      axios
+        .post("./done.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.todos = res.data;
+        });
     },
   },
   created() {

@@ -1,21 +1,13 @@
 <?php
+$todos_json = file_get_contents('./todos.json');
+$todos = json_decode($todos_json, true);
 
-$todos = [
-    [
-        'text' => 'Fare la spesa',
-        'done' => 'false'
-    ],
-    [
-        'text' => 'Andare in palestra',
-        'done' => 'false'
-    ],
-    [
-        'text' => 'Finire questo esercizio',
-        'done' => 'false'
-    ],
+$response = [
+    'success' => true,
+    'results' => $todos
 ];
 
 header('Content-type: application/json');
-echo json_encode($todos);
-// var_dump($todos);
+echo json_encode($response);
+
 

@@ -1,6 +1,7 @@
 <?php
 
-$new_todo = $_POST['todo'] ?? '';
+$index = $_POST['id'] ?? '';
+
 
 $todos_json = file_get_contents('./todos.json');
 $todos = json_decode($todos_json, true);
@@ -9,12 +10,7 @@ $response = [
     'success' => true,
 ];
 
-$todo = [
-    'text' => $new_todo,
-    'done' => 'false'
-];
-
-$todos[] = $todo;
+array_splice($todos, $index, 1);
 
 $response['results'] = $todos;
 
@@ -25,4 +21,3 @@ header('Content-type: application/json');
 echo json_encode($todos);
 
 ?>
-
