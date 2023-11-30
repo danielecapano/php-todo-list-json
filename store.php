@@ -9,14 +9,17 @@ $response = [
     'success' => true,
 ];
 
-$todo = [
-    'text' => $new_todo,
-    'done' => 'false'
-];
+if($new_todo !== '') {
+    $todo = [
+        'text' => $new_todo,
+        'done' => false
+    ];
+    
+    $todos[] = $todo;
+    
+    $response['results'] = $todos;
+}
 
-$todos[] = $todo;
-
-$response['results'] = $todos;
 
 $todos_json = json_encode($todos);
 file_put_contents('./todos.json', $todos_json);

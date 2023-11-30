@@ -10,11 +10,11 @@ $response = [
     'success' => true,
 ];
 
-if($todos[$index]['done'] === true){
+if($todos[$index]['done'] === false){
 
-    $todos[$index]['done'] = false;
-} else {
     $todos[$index]['done'] = true;
+} else {
+    $todos[$index]['done'] = false;
 }
 
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -14,37 +16,144 @@ img {
     max-width: 100%;
 }
 
-a {
-    text-decoration: none;
-    color: currentColor;
-}
 
-button {
-    border: none;
-    outline: none;
-}
-
-section {
-    padding: 50px 20px;
+body {
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: #007FFF;
+    height: 100vh;
 }
 
 .container {
-    max-width: 500px;
+    width: 500px;
     margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
 }
 
-li {
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.new-task {
+    position: relative;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #7c7c7c;
+}
+
+input:focus {
+    border-color: #007FFF;
+}
+
+.btn-add {
+    display: block;
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(100% - 0.5rem);
+    aspect-ratio: 1;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    background-color: #007FFF;
+    color: #FFF;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-add:hover {
+    background-color: hsl(210, 100%, 60%);
+    color: #FFF;
+}
+
+.small {
+    font-size: 0.75rem;
+    color: rgb(218, 31, 31);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.list {
+    margin-top: 1rem;
+}
+
+.item {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #eeeeee;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.actions {
+.option-task {
     display: flex;
-    gap: 1rem;
     align-items: center;
+    gap: 0.5rem;
 }
 
-span.done {
+.option-task span {
+    background-color: #fff;
+    height: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.option-task span:hover {
+    background-color: #007FFF;
+    color: #FFF;
+}
+
+.task-empty {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+button.reset {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #007FFF;
+    color: #FFF;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+
+}
+
+
+
+.checked {
     text-decoration: line-through;
+    color: #7c7c7c;
+}
+
+.hidden {
+    visibility: hidden;
 }

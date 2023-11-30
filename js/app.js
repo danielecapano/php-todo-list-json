@@ -6,6 +6,7 @@ createApp({
       title: "To Do list",
       newTodo: "",
       todos: [],
+      classList: "small hidden",
     };
   },
   methods: {
@@ -29,6 +30,7 @@ createApp({
         .then((res) => {
           console.log(res.data);
           this.todos = res.data;
+          this.newTodo = "";
         });
 
       //   console.log(this.newTodo);
@@ -56,6 +58,18 @@ createApp({
 
       axios
         .post("./done.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.todos = res.data;
+        });
+    },
+    deleteAll() {
+      axios
+        .post("./deleteAll.php", {
           headers: {
             "Content-Type": "multipart/form-data",
           },
